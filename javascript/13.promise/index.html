@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- fetch 사용하면 promise 리턴하므로 then 사용  fetch는response 객체를 resolve하는 promise를 줌 -->
+<!-- json() - response안의 body에 있는 json문자열을 자바스크립트에서 쓸수있는 객체로 변환 -->
+<!-- json()은 promise를 리턴하기 때문에 비동기적 방식으로 처리 -->
+<body> 
+    <!-- <script>
+        fetch(
+            'https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0'
+            ).then(response => {
+                const data = response.json();
+                console.log(data);
+            })
+    </script> -->
+     <script>
+        fetch(
+            'https://www.7timer.info/bin/astro.php?lon=113.2&lat=23.1&ac=0&unit=metric&output=json&tzshift=0'
+            ).then((response) => response.json())
+            .then(data => console.log(data.dataseries));
+    </script>
+</body>
+</html>
